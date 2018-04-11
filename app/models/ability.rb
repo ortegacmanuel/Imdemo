@@ -11,8 +11,8 @@ class Ability
     #   can :manage, :all
     if user.role? :superadmin
       can :manage, :all
-    else
-      # put restrictions for other users here
+    elsif user.role? :admin
+      can :manage, [Client, DocumentType, Document, Product, WorkProcess]
     end
   end
 end

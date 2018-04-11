@@ -1,0 +1,2 @@
+class WorkProcessesController < InlineFormsController
+end
