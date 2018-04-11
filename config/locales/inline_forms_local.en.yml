@@ -1,0 +1,7 @@
+en:
+  inline_forms:
+    general:
+      application_title: Imdemo
+    devise:
+      title_for_devise: Imdemo
+      welcome: Welcome to Imdemo!
