@@ -5,7 +5,7 @@ class Product < ApplicationRecord
   has_paper_trail
 
   has_and_belongs_to_many :document_types
-    has_and_belongs_to_many :work_processes
+  has_and_belongs_to_many :work_processes
 
   def _presentation
     "#{name}"

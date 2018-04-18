@@ -15,7 +15,7 @@ class Document < ApplicationRecord
   def inline_forms_attribute_list
     @inline_forms_attribute_list ||= [
       [ :name , "name", :text_field ],
-      
+      [ :document_type, "document_type", :dropdown ],
     ]
   end
 
@@ -25,7 +25,7 @@ class Document < ApplicationRecord
   end
 
   def self.order_by_clause
-    "name"
+    nil
   end
 
 

@@ -15,3 +15,7 @@
  *= require foundation_and_overrides
 
  */
+
+ .client-presentation p {
+   line-height: 4px;
+ }

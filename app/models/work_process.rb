@@ -9,7 +9,11 @@ class WorkProcess < ApplicationRecord
   has_many :documents
 
   def _presentation
-    "#{name}"
+    "#{name} (#{products_text})"
+  end
+
+  def products_text
+    products.map(&:name).join(' | ')
   end
 
 
