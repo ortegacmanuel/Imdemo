@@ -1,41 +1,21 @@
-<div class="contain-to-grid fixed" id="inline_forms_model_top_bar_container">
-  <nav id="inline_forms_model_top_bar" class="top-bar" data-topbar>
-  <ul class="title-area">
-    <li class="name" id="inline_forms_menu">
-      <h1>
-        <a>
-          <%= t(controller_name) %>
-        </a>
-      </h1>
-    </li>
-    <li class="toggle-topbar menu-icon">
-      <a href="#"><span></span></a>
-    </li>
-  </ul>
-  <section class="top-bar-section">
-    <ul class="right">
-      <li class="has-form">
-        <%= form_tag request.path, :method => 'get' do %>
-          <div class="row collapse">
-            <div class="large-1 small-1 columns">
-              <%= link_to "<i class='fi-x'></i>".html_safe, request.path, :title => 'reset', :class => "button expand inline_forms_model_top_bar_buttons" %>
+<div class="title-search-block">
+    <div class="title-block">
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="title"> <%= t(controller_name) %>
+                    <%= link_to_new_record(@Klass, "new_#{@Klass.to_s.singularize.underscore}_path", @Klass.to_s.pluralize.downcase + '_list') %>
+                </h3>
+                <!-- <p class="title-description"> List of sample items - e.g. books, movies, events, etc... </p> -->
             </div>
-            <div class="large-6 small-6 columns">
-              <%= text_field_tag :search,  params[:search], :placeholder => 'zoek op naam...', :id => 'input_search' %>
-            </div>
-            <div class="large-3 small-3 columns">
-              <%= submit_tag 'zoek', :class => "button expand inline_forms_model_top_bar_buttons" %>
-            </div>
-            <div class="large-2 small-2 columns">
-              &nbsp;
-            </div>
-          </div>
+        </div>
+    </div>
+    <div class="items-search">
+        <%= form_tag request.path, :method => 'get', class: 'form-inline' do %>
+          <%= link_to "<i class='fi-x'></i>".html_safe, request.path, :title => 'reset', :class => "button expand inline_forms_model_top_bar_buttons" %>
+          <%= text_field_tag :search,  params[:search], :placeholder => 'zoek op naam...', :id => 'input_search', class: 'form-control boxed' %>
+          <%= button_tag(type: "submit", class: "btn btn-secondary rounded-s") do %>
+            <%= octicon("search", height: '18px') %>
+          <% end %>
         <% end %>
-      </li>
-      <li>
-      <%= link_to_new_record(@Klass, "new_#{@Klass.to_s.singularize.underscore}_path", @Klass.to_s.pluralize.downcase + '_list') %>
-      </li>
-    </ul>
-  </section>
-</nav>
+    </div>
 </div>
